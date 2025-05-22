@@ -1,0 +1,28 @@
+<svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle for the icon -->
+  <circle cx="50" cy="50" r="35" fill="#2563eb" stroke="#1e40af" stroke-width="2"/>
+  
+  <!-- Vault/Safe door -->
+  <rect x="30" y="30" width="40" height="40" rx="4" fill="#1e40af" stroke="#ffffff" stroke-width="1.5"/>
+  
+  <!-- Vault handle/wheel -->
+  <circle cx="50" cy="50" r="8" fill="none" stroke="#ffffff" stroke-width="2"/>
+  <circle cx="50" cy="50" r="3" fill="#ffffff"/>
+  
+  <!-- Shopping bag icon integrated -->
+  <path d="M38 35 L38 32 Q38 28 42 28 L58 28 Q62 28 62 32 L62 35" 
+        fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+  
+  <!-- Brand name -->
+  <text x="95" y="45" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#1e40af">
+    Shop
+  </text>
+  <text x="95" y="70" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#dc2626">
+    Vault
+  </text>
+  
+  <!-- Tagline -->
+  <text x="95" y="85" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">
+    SECURE • TRUSTED • SHOPPING
+  </text>
+</svg>
