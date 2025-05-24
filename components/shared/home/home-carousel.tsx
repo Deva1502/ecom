@@ -7,7 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { cn } from "@/lib/utils";
+// import { cn } from "@/lib/utils";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import Link from "next/link";
@@ -46,7 +46,10 @@ const HomeCarousel = ({
       >
         <CarouselContent className="-ml-1">
           {items.map((item, index) => (
-            <CarouselItem key={`${item.title}-${index}`} className="pl-1 basis-full">
+            <CarouselItem
+              key={`${item.title}-${index}`}
+              className="pl-1 basis-full"
+            >
               <Link href={item.url} className="block">
                 <div className="relative aspect-[16/6] overflow-hidden rounded-lg">
                   <Image
@@ -59,14 +62,14 @@ const HomeCarousel = ({
                   />
                   {/* Overlay for better text readability */}
                   <div className="absolute inset-0 bg-black/20" />
-                  
+
                   {/* Content overlay */}
                   <div className="absolute inset-0 flex items-center">
                     <div className="w-full max-w-md ml-8 md:ml-16 lg:ml-32">
                       <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-4 text-white drop-shadow-lg">
                         {item.title}
                       </h2>
-                      <Button 
+                      <Button
                         className="hidden md:inline-flex bg-primary hover:bg-primary/90 text-primary-foreground"
                         size="lg"
                       >
@@ -79,11 +82,11 @@ const HomeCarousel = ({
             </CarouselItem>
           ))}
         </CarouselContent>
-        
+
         {/* Navigation arrows */}
         <CarouselPrevious className="left-4" />
         <CarouselNext className="right-4" />
-        
+
         {/* Dots indicator */}
         <div className="flex justify-center space-x-2 mt-4">
           {items.map((_, index) => (
