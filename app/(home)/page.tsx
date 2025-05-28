@@ -9,7 +9,7 @@ import {
   getAllCategories,
   getProductsByTag,
   getProductsForCard,
-} from "@/lib/action/product.actions";
+} from "@/lib/actions/product.actions";
 import data from "@/lib/data";
 import { toSlug } from "@/lib/utils";
 
