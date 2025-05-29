@@ -1,18 +1,17 @@
-import Link from "next/link";
+// import Link from "next/link";
 import React from "react";
 import CartButton from "./cart-button";
-import { UserIcon } from "lucide-react";
+// import { UserIcon } from "lucide-react";
+import UserButton from "./user-button";
 
 const Menu = () => {
   return (
     <div className="flex justify-end">
       <nav className="flex w-full gap-2">
-        <Link href="/cart" className="header-button">
-          <UserIcon className=" h-8 w-8" />
-          <span className=" font-bold">SignIn</span>
-        </Link>
+        <UserButton/>
 
         <CartButton />
+
       </nav>
     </div>
   );

@@ -1,29 +1,32 @@
-import data from '@/lib/data'
-import { connectToDatabase } from '.'
+import data from "@/lib/data";
+import { connectToDatabase } from ".";
 // import Product from './models/product.model'
-import { cwd } from 'process'
-import { loadEnvConfig } from '@next/env'
-import Product from './models/product.models'
+import { cwd } from "process";
+import { loadEnvConfig } from "@next/env";
+import Product from "./models/product.models";
+import User from "./models/user.model";
 
-loadEnvConfig(cwd())
+loadEnvConfig(cwd());
 
 const main = async () => {
   try {
-    const { products } = data
-    await connectToDatabase(process.env.MONGODB_URI)
+    const { products, users } = data;
+    await connectToDatabase(process.env.MONGODB_URI);
 
-    await Product.deleteMany()
-    const createdProducts = await Product.insertMany(products)
+    await Product.deleteMany();
+    const createdUser = await User.insertMany(users);
+    const createdProducts = await Product.insertMany(products);
 
     console.log({
+      createdUser,
       createdProducts,
-      message: 'Seeded database successfully',
-    })
-    process.exit(0)
+      message: "Seeded database successfully",
+    });
+    process.exit(0);
   } catch (error) {
-    console.error(error)
-    throw new Error('Failed to seed database')
+    console.error(error);
+    throw new Error("Failed to seed database");
   }
-}
+};
 
-main()
+main();
