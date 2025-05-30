@@ -44,6 +44,8 @@ import {
 } from "@/lib/constants";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import CheckoutFooter from "./checkout-footer";
+import { createOrder } from "@/lib/actions/order.actions";
+import { toast } from "sonner";
 
 const shippingAddressDefaultValues =
   process.env.NODE_ENV === "development"
@@ -84,6 +86,7 @@ const CheckoutForm = () => {
     setPaymentMethod,
     updateItem,
     removeItem,
+    clearCart,
     setDeliveryDateIndex,
   } = useCartStore();
   const isMounted = useIsMounted();
@@ -116,6 +119,26 @@ const CheckoutForm = () => {
 
   const handlePlaceOrder = async () => {
     // TODO: place order
+    const res = await createOrder({
+      items,
+      shippingAddress,
+      expectedDeliveryDate: calculateFutureDate(
+        AVAILABLE_DELIVERY_DATES[deliveryDateIndex!].daysToDeliver
+      ),
+      deliveryDateIndex,
+      paymentMethod,
+      itemsPrice,
+      shippingPrice,
+      taxPrice,
+      totalPrice,
+    })
+    if (!res.success) {
+      toast.error(res.message)
+    } else {
+      toast.error(res.message)
+      clearCart()
+      router.push(`/checkout/${res.data?.orderId}`)
+    }
   };
   const handleSelectPaymentMethod = () => {
     setIsAddressSelected(true);
